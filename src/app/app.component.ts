@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'comunicacion-componentes';
+
+  //ci : string;
+
+  usuario : any = {
+              cel: "",
+              ci: "",
+              correo:  "",
+              direccion: "",
+              nombre:  "",
+            };
+  
+
+
+
+  @Output() emisor = new EventEmitter<any>();
+
+
+  constructor(){
+
+    this.emisor.emit(this.usuario);
+
+  }
+
+
 }
